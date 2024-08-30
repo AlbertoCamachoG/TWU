@@ -10,14 +10,10 @@ public class gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
-        /*if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }*/
     }
     void Shoot()
     {
