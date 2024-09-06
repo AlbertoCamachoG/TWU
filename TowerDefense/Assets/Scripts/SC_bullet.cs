@@ -6,11 +6,13 @@ public class SC_bullet : MonoBehaviour
 {
     private Vector3 mousePos;
     private Camera mainCam;
-    public float speed = 2f;
+    public float speed=2f;
     public Rigidbody2D rb;
+    public float acceleration;
     // Start is called before the first frame update
     void Start()
     {
+        speed *= acceleration;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -24,7 +26,7 @@ public class SC_bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name!="Player") Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 }

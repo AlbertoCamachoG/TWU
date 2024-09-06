@@ -17,7 +17,7 @@ public class SC_camera_follow : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 targetPos = target.position + mousePos/5;
+        Vector3 targetPos = target.position;
         targetPos.z = transform.position.z;
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, damping);

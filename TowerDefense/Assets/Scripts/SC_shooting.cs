@@ -35,7 +35,17 @@ public class SC_shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire)
         {
              canFire = false;
-             Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity);
+            if(Vector2.Distance((Vector2)transform.position, (Vector2)mousePos) > Vector2.Distance((Vector2)transform.position, (Vector2)bulletTransform.position)){
+                GameObject Bullet = Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity);
+                Bullet.GetComponent<SC_bullet>().acceleration = 1;
+            }
+            else
+            {
+                GameObject Bullet = Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity);
+                Bullet.GetComponent<SC_bullet>().acceleration = -1;
+
+            }
+            
         }
     }
 }
